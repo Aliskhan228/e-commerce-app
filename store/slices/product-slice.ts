@@ -26,13 +26,14 @@ const initialState: ProductState = {
 
 export const getProducts = createAsyncThunk<
   ProductsResponse,
-  { page: number; limit: number }
->("products/getProducts", async ({ page, limit }) => {
+  { page: number; limit: number; title?: string }
+>("products/getProducts", async ({ page, limit, title = '' }) => {
   const response = await axios.get("/products", {
     method: "GET",
     params: {
       page,
       limit,
+      title: `*${title}`,
     },
   });
   return response.data;

@@ -23,14 +23,14 @@ export const ProductCard: React.FC<Props> = ({ item, className }) => {
   return (
     <div
       className={cn(
-        "flex flex-col justify-between hover:shadow-xl transition-shadow duration-300",
+        "flex flex-col hover:shadow-xl transition-shadow duration-300",
         className
       )}
     >
       <div>
         <img src={item.image} alt='' />
       </div>
-      <div className='p-5'>
+      <div className='flex flex-1 flex-col justify-between p-5'>
         <div className='flex flex-col gap-3'>
           <h4 className='font-bold text-2xl'>{item.title}</h4>
           <p className='text-[16px]'>{truncatedText}</p>

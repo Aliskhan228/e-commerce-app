@@ -14,8 +14,6 @@ import { getProducts, setPage } from "@/store/slices/product-slice";
 
 interface Props {
   className?: string;
-  currentPage?: number;
-  pageCount?: number;
 }
 
 export const Pagination: React.FC<Props> = ({ className }) => {
