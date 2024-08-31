@@ -35,20 +35,22 @@ export const ProductCard: React.FC<Props> = ({ item, className }) => {
           <h4 className='font-bold text-2xl'>{item.title}</h4>
           <p className='text-[16px]'>{truncatedText}</p>
         </div>
-				<div className="flex items-center gap-2 mt-3">
-					<Star fill="#ffea00" color="#ffea00" className="h-4 w-4" />
-					{item.rating}
+				<div>
+					<div className="flex items-center gap-2 mt-3">
+						<Star fill="#ffea00" color="#ffea00" className="h-4 w-4" />
+						{item.rating}
+					</div>
+	        <div className='flex items-center justify-between mt-5'>
+	          <span className='flex gap-2 text-lg'>
+	            <b>{item.price}</b>
+	            {currency}
+	          </span>
+	          <Button className='flex gap-2' onClick={addToCart}>
+	            <Plus className='text-white h-4 w-4' />
+	            {count > 0 ? count : "Add"}
+	          </Button>
+	        </div>
 				</div>
-        <div className='flex items-center justify-between mt-5'>
-          <span className='flex gap-2 text-lg'>
-            <b>{item.price}</b>
-            {currency}
-          </span>
-          <Button className='flex gap-2' onClick={addToCart}>
-            <Plus className='text-white h-4 w-4' />
-            {count > 0 ? count : "Add"}
-          </Button>
-        </div>
       </div>
     </div>
   );
