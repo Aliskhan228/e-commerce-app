@@ -39,7 +39,7 @@ export const CartDrawer: React.FC<React.PropsWithChildren<Props>> = ({
   return (
     <Sheet>
       <SheetTrigger asChild>{children}</SheetTrigger>
-      <SheetContent className='flex flex-col justify-between overflow-auto'>
+      <SheetContent className='flex flex-col overflow-auto'>
         <SheetHeader>
           <SheetTitle className='mb-5'>
             <span className='font-bold'>{totalQuantity} products in cart</span>
@@ -56,7 +56,7 @@ export const CartDrawer: React.FC<React.PropsWithChildren<Props>> = ({
           </div>
         </SheetHeader>
 
-        <div className='flex flex-col gap-5 mt-3'>
+        <div className='flex flex-col flex-1 gap-5 mt-3'>
           {items.map((item) => (
             <CartItem key={item.id} item={item} />
           ))}

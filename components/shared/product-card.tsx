@@ -14,7 +14,6 @@ import { selectQuantityById } from "@/store/selectors";
 import { RootState } from "@/store/store";
 import { Counter } from "./counter";
 import { useCurrencyContext } from "@/context/currency-context";
-import Link from "next/link";
 
 interface Props {
   item: Product;
