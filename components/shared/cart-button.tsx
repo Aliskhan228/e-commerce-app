@@ -21,9 +21,9 @@ export const CartButton: React.FC<Props> = () => {
 
   return (
     <CartDrawer>
-      <Button>
-        <b>{formattedPrice}</b>
-        <span className='h-full w-[1px] bg-white/30 mx-3' />
+      <Button className="bg-transparent border-none text-black shadow-none hover:bg-transparent sm:bg-primary sm:hover:bg-primary sm:text-white">
+        <b className="hidden sm:inline">{formattedPrice}</b>
+        <span className='h-full w-[1px] bg-white/30 mx-3 hidden sm:inline' />
         <div className='flex items-center gap-1'>
           <ShoppingCart strokeWidth={2} />
           <b>{totalQuantity}</b>

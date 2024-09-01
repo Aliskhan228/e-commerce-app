@@ -14,6 +14,7 @@ import { selectQuantityById } from "@/store/selectors";
 import { RootState } from "@/store/store";
 import { Counter } from "./counter";
 import { useCurrencyContext } from "@/context/currency-context";
+import Link from "next/link";
 
 interface Props {
   item: Product;
@@ -75,7 +76,7 @@ export const ProductCard: React.FC<Props> = ({ item, className }) => {
           <h4 className='font-bold text-2xl'>{item.title}</h4>
           <p className='text-[16px]'>{truncatedText}</p>
         </div>
-        <div>
+        <div className="mt-5">
           <div className='flex items-center gap-2 mt-3'>
             <Star fill='#ffea00' color='#ffea00' className='h-4 w-4' />
             {item.rating}

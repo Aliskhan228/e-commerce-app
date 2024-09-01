@@ -18,16 +18,16 @@ const Header: React.FC<Props> = ({ query, setQuery }) => {
   };
 
   return (
-    <header className='p-5'>
+    <header className='py-5'>
       <Container>
         <div className='flex items-center justify-between'>
           <Input
-            className='w-1/3'
+            className='w-1/2 sm:w-1/3'
             placeholder='Search products by title'
             value={query}
             onChange={handleChange}
           />
-          <div className="flex gap-10">
+          <div className="flex gap-3 sm:gap-10">
             <CurrencySelect />
             <CartButton />
           </div>
