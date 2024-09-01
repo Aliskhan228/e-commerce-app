@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "../../lib/api";
-import { Product } from "@/types/product";
-import { MetaData } from "@/types/metadate";
+import { Product } from "@/types/types";
+import { MetaData } from "@/types/types";
 
 interface ProductState {
   items: Product[];

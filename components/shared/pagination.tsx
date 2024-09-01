@@ -2,8 +2,6 @@
 
 import React from "react";
 
-import { useSearchParams } from "next/navigation";
-import { useRouter } from "next/navigation";
 import { Button } from "../ui/button";
 import { ChevronLeft } from "lucide-react";
 import { cn } from "@/lib/utils";

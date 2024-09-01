@@ -5,6 +5,7 @@ import Header from "@/components/shared/header";
 import { Pagination } from "@/components/shared/pagination";
 import { ProductList } from "@/components/shared/product-list";
 import { ProductSelect } from "@/components/shared/product-select";
+import { CurrencyProvider } from "@/context/currency-context";
 import { useAppDispatch } from "@/store/hooks";
 import { selectCurrentPage, selectProducts } from "@/store/selectors";
 import { getProducts } from "@/store/slices/product-slice";
@@ -37,13 +38,13 @@ export default function Home() {
   }, [dispatch, currentPage, debouncedQuery, sort]);
 
   return (
-    <>
+    <CurrencyProvider>
       <Header query={query} setQuery={setQuery} />
       <Container>
         <ProductSelect sort={sort} setSort={setSort} className='my-5' />
         <ProductList items={items} />
         <Pagination />
       </Container>
-    </>
+    </CurrencyProvider>
   );
 }

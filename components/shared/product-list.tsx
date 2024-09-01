@@ -1,6 +1,9 @@
+"use client";
+
 import React from "react";
+
 import { ProductCard } from "./product-card";
-import { Product } from "@/types/product";
+import { Product } from "@/types/types";
 import { selectError, selectLoading } from "@/store/selectors";
 import { useSelector } from "react-redux";
 import { ProductSkeleton } from "./product-skeleton";

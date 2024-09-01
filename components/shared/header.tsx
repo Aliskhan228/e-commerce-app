@@ -1,8 +1,11 @@
+"use client";
+
 import { Input } from "@/components/ui/input";
 import { Container } from "./container";
-import { ShoppingCart } from "lucide-react";
-import { Button } from "../ui/button";
+import { CartButton } from "./cart-button";
+
 import React, { Dispatch, SetStateAction } from "react";
+import { CurrencySelect } from "./currency-select";
 
 interface Props {
   query: string;
@@ -24,15 +27,9 @@ const Header: React.FC<Props> = ({ query, setQuery }) => {
             value={query}
             onChange={handleChange}
           />
-          <div>
-            <Button>
-              <b>0 ₽</b>
-              <span className='h-full w-[1px] bg-white/30 mx-3' />
-              <div className='flex items-center gap-1'>
-                <ShoppingCart strokeWidth={2} />
-                <b>0</b>
-              </div>
-            </Button>
+          <div className="flex gap-10">
+            <CurrencySelect />
+            <CartButton />
           </div>
         </div>
       </Container>
