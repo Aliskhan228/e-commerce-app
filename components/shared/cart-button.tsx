@@ -10,11 +10,7 @@ import { CartDrawer } from "./cart-drawer";
 import { formatPrice } from "@/utils/utils";
 import { useCurrencyContext } from "@/hook/useCurrencyContext";
 
-interface Props {
-  className?: string;
-}
-
-export const CartButton: React.FC<Props> = () => {
+export const CartButton: React.FC = () => {
   const { currency } = useCurrencyContext();
   const { totalPrice, totalQuantity } = useSelector(selectCart);
   const formattedPrice = formatPrice(totalPrice, currency);

@@ -7,7 +7,6 @@ import { Product } from "@/types/types";
 import { selectError, selectLoading } from "@/store/selectors";
 import { useSelector } from "react-redux";
 import { ProductSkeleton } from "./product-skeleton";
-import { Link } from "lucide-react";
 
 interface Props {
   items: Product[];
@@ -33,9 +32,6 @@ export const ProductList: React.FC<Props> = ({ items }) => {
     <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-5 gap-y-10'>
       {items.map((item) => (
         <ProductCard key={item.id} item={item} />
-
-        // <Link key={item.id} href={`/${item.id}`}>
-        // </Link>
       ))}
     </div>
   );

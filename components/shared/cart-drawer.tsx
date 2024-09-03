@@ -19,14 +19,7 @@ import { clearItems } from "@/store/slices/cart-slice";
 import { formatPrice } from "@/utils/utils";
 import { useCurrencyContext } from "@/hook/useCurrencyContext";
 
-interface Props {
-  className?: string;
-}
-
-export const CartDrawer: React.FC<React.PropsWithChildren<Props>> = ({
-  children,
-  className,
-}) => {
+export const CartDrawer: React.FC<React.PropsWithChildren> = ({ children }) => {
   const dispatch = useAppDispatch();
   const { currency } = useCurrencyContext();
   const { items, totalPrice, totalQuantity } = useSelector(selectCart);
