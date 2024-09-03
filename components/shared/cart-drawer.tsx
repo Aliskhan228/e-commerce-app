@@ -16,8 +16,8 @@ import { useSelector } from "react-redux";
 import { selectCart } from "@/store/selectors";
 import { useAppDispatch } from "@/store/hooks";
 import { clearItems } from "@/store/slices/cart-slice";
-import { useCurrencyContext } from "@/context/currency-context";
 import { formatPrice } from "@/utils/utils";
+import { useCurrencyContext } from "@/hook/useCurrencyContext";
 
 interface Props {
   className?: string;

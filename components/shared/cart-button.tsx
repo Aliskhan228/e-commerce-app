@@ -8,7 +8,7 @@ import { ShoppingCart } from "lucide-react";
 import { Button } from "../ui/button";
 import { CartDrawer } from "./cart-drawer";
 import { formatPrice } from "@/utils/utils";
-import { useCurrencyContext } from "@/context/currency-context";
+import { useCurrencyContext } from "@/hook/useCurrencyContext";
 
 interface Props {
   className?: string;
@@ -21,8 +21,8 @@ export const CartButton: React.FC<Props> = () => {
 
   return (
     <CartDrawer>
-      <Button className="bg-transparent border-none text-black shadow-none hover:bg-transparent sm:bg-primary sm:hover:bg-primary sm:text-white">
-        <b className="hidden sm:inline">{formattedPrice}</b>
+      <Button className='bg-transparent border-none text-black shadow-none hover:bg-transparent sm:bg-primary sm:hover:bg-primary sm:text-white'>
+        <b className='hidden sm:inline'>{formattedPrice}</b>
         <span className='h-full w-[1px] bg-white/30 mx-3 hidden sm:inline' />
         <div className='flex items-center gap-1'>
           <ShoppingCart strokeWidth={2} />

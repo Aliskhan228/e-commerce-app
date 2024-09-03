@@ -5,6 +5,8 @@ import { cn } from "@/lib/utils";
 import { CartProduct } from "@/types/types";
 import { Counter } from "./counter";
 import { useCardActions } from "@/hook/useCardActions";
+import { useCurrencyContext } from "@/hook/useCurrencyContext";
+import { formatPrice } from "@/utils/utils";
 
 interface Props {
   item: CartProduct;
@@ -13,6 +15,9 @@ interface Props {
 
 export const CartItem: React.FC<Props> = ({ item, className }) => {
   const { handleIncrease, handleDecrease } = useCardActions();
+  const { currency } = useCurrencyContext();
+
+  const formattedPrice = formatPrice(item.price, currency);
 
   return (
     <div className={cn("flex flex-col", className)}>
@@ -32,7 +37,9 @@ export const CartItem: React.FC<Props> = ({ item, className }) => {
         onIncrease={() => handleIncrease(item.id, item.quantity)}
         onDecrease={() => handleDecrease(item.id, item.quantity)}
       />
-      <span>{item.price} $</span>
+      <span>
+        {formattedPrice}
+      </span>
     </div>
   );
 };
