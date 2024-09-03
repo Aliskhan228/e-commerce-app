@@ -3,9 +3,8 @@
 import React from "react";
 import { cn } from "@/lib/utils";
 import { CartProduct } from "@/types/types";
-import { useAppDispatch } from "@/store/hooks";
-import { removeItem, updateQuantity } from "@/store/slices/cart-slice";
 import { Counter } from "./counter";
+import { useCardActions } from "@/hook/useCardActions";
 
 interface Props {
   item: CartProduct;
@@ -13,33 +12,7 @@ interface Props {
 }
 
 export const CartItem: React.FC<Props> = ({ item, className }) => {
-  const dispatch = useAppDispatch();
-
-  const handleIncrease: () => void = () => {
-    if (item.quantity !== undefined) {
-      dispatch(
-        updateQuantity({
-          id: item.id,
-          quantity: item.quantity + 1,
-          direction: "inc",
-        })
-      );
-    }
-  };
-
-  const handleDecrease: () => void = () => {
-    if (item.quantity && item.quantity > 1) {
-      dispatch(
-        updateQuantity({
-          id: item.id,
-          quantity: item.quantity - 1,
-          direction: "dec",
-        })
-      );
-    } else {
-      dispatch(removeItem(item.id));
-    }
-  };
+  const { handleIncrease, handleDecrease } = useCardActions();
 
   return (
     <div className={cn("flex flex-col", className)}>
@@ -56,8 +29,8 @@ export const CartItem: React.FC<Props> = ({ item, className }) => {
       <Counter
         className='my-3'
         count={item.quantity}
-        onIncrease={handleIncrease}
-        onDecrease={handleDecrease}
+        onIncrease={() => handleIncrease(item.id, item.quantity)}
+        onDecrease={() => handleDecrease(item.id, item.quantity)}
       />
       <span>{item.price} $</span>
     </div>

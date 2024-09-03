@@ -8,12 +8,13 @@ import { Button } from "../ui/button";
 import { Product } from "@/types/types";
 import { formatPrice, truncateText } from "@/utils/utils";
 import { useAppDispatch } from "@/store/hooks";
-import { addItem, removeItem, updateQuantity } from "@/store/slices/cart-slice";
+import { addItem } from "@/store/slices/cart-slice";
 import { useSelector } from "react-redux";
 import { selectQuantityById } from "@/store/selectors";
 import { RootState } from "@/store/store";
 import { Counter } from "./counter";
 import { useCurrencyContext } from "@/context/currency-context";
+import { useCardActions } from "@/hook/useCardActions";
 
 interface Props {
   item: Product;
@@ -21,6 +22,7 @@ interface Props {
 }
 
 export const ProductCard: React.FC<Props> = ({ item, className }) => {
+  const { handleIncrease, handleDecrease } = useCardActions();
   const dispatch = useAppDispatch();
   const quantity = useSelector((state: RootState) =>
     selectQuantityById(state, item.id)
@@ -32,32 +34,6 @@ export const ProductCard: React.FC<Props> = ({ item, className }) => {
 
   const addToCart: () => void = () => {
     dispatch(addItem(item));
-  };
-
-  const handleIncrease: () => void = () => {
-    if (quantity !== undefined) {
-      dispatch(
-        updateQuantity({
-          id: item.id,
-          quantity: quantity + 1,
-          direction: "inc",
-        })
-      );
-    }
-  };
-
-  const handleDecrease: () => void = () => {
-    if (quantity && quantity > 1) {
-      dispatch(
-        updateQuantity({
-          id: item.id,
-          quantity: quantity - 1,
-          direction: "dec",
-        })
-      );
-    } else {
-      dispatch(removeItem(item.id));
-    }
   };
 
   return (
@@ -75,7 +51,7 @@ export const ProductCard: React.FC<Props> = ({ item, className }) => {
           <h4 className='font-bold text-2xl'>{item.title}</h4>
           <p className='text-[16px]'>{truncatedText}</p>
         </div>
-        <div className="mt-5">
+        <div className='mt-5'>
           <div className='flex items-center gap-2 mt-3'>
             <Star fill='#ffea00' color='#ffea00' className='h-4 w-4' />
             {item.rating}
@@ -84,11 +60,11 @@ export const ProductCard: React.FC<Props> = ({ item, className }) => {
             <span className='flex gap-2 text-lg'>
               <b>{formattedPrice}</b>
             </span>
-            {quantity ? (
+            {quantity !== undefined ? (
               <Counter
                 count={quantity}
-                onIncrease={handleIncrease}
-                onDecrease={handleDecrease}
+                onIncrease={() => handleIncrease(item.id, quantity)}
+                onDecrease={() => handleDecrease(item.id, quantity)}
               />
             ) : (
               <Button className='flex gap-2' onClick={addToCart}>
