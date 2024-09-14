@@ -4,8 +4,8 @@ import React from "react";
 import { cn } from "@/lib/utils";
 import { CartProduct } from "@/types/types";
 import { Counter } from "./counter";
-import { useCardActions } from "@/hook/useCardActions";
-import { useCurrencyContext } from "@/hook/useCurrencyContext";
+import { useCardActions } from "@/hooks/useCardActions";
+import { useCurrencyContext } from "@/hooks/useCurrencyContext";
 import { formatPrice } from "@/utils/utils";
 
 interface Props {

@@ -8,7 +8,7 @@ import { ShoppingCart } from "lucide-react";
 import { Button } from "../ui/button";
 import { CartDrawer } from "./cart-drawer";
 import { formatPrice } from "@/utils/utils";
-import { useCurrencyContext } from "@/hook/useCurrencyContext";
+import { useCurrencyContext } from "@/hooks/useCurrencyContext";
 
 export const CartButton: React.FC = () => {
   const { currency } = useCurrencyContext();

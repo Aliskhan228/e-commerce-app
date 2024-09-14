@@ -11,7 +11,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { cn } from "@/lib/utils";
-import { useCurrencyContext } from '@/hook/useCurrencyContext';
+import { useCurrencyContext } from '@/hooks/useCurrencyContext';
 
 interface Props {
   className?: string;

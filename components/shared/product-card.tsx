@@ -13,8 +13,8 @@ import { useSelector } from "react-redux";
 import { selectQuantityById } from "@/store/selectors";
 import { RootState } from "@/store/store";
 import { Counter } from "./counter";
-import { useCardActions } from "@/hook/useCardActions";
-import { useCurrencyContext } from "@/hook/useCurrencyContext";
+import { useCardActions } from "@/hooks/useCardActions";
+import { useCurrencyContext } from "@/hooks/useCurrencyContext";
 
 interface Props {
   item: Product;

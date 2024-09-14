@@ -17,12 +17,13 @@ import { selectCart } from "@/store/selectors";
 import { useAppDispatch } from "@/store/hooks";
 import { clearItems } from "@/store/slices/cart-slice";
 import { formatPrice } from "@/utils/utils";
-import { useCurrencyContext } from "@/hook/useCurrencyContext";
+import { useCurrencyContext } from "@/hooks/useCurrencyContext";
 
 export const CartDrawer: React.FC<React.PropsWithChildren> = ({ children }) => {
   const dispatch = useAppDispatch();
   const { currency } = useCurrencyContext();
   const { items, totalPrice, totalQuantity } = useSelector(selectCart);
+	
   const formattedPrice = formatPrice(totalPrice, currency);
 
   const clearCart: () => void = () => {
